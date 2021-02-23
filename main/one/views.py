@@ -30,3 +30,4 @@ def delete(request,id):
     crud = Crudex.objects.get(pk=id)
     crud.delete()
     return redirect('/read')
+
