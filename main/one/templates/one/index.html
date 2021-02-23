@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD</title>
+</head>
+<body>
+
+    <div style="margin: 100px auto; max-width: 600px; height: auto; padding: 30px 19px; box-shadow: 0 15px 10px -10px rgb(0 0 0 / 50%), 0 1px 4px rgb(0 0 0 / 30%), 0 0 40px rgb(0 0 0 / 10%) inset;">
+        <a style="margin: 0 auto;" href="{% url 'create' %}"><button type="submit">CREATE</button></a>
+        <a href="{% url 'read' %}"><button type="submit">READ</button></a>
+        {% block content %}
+        {% endblock content %}
+    </div>
+</body>
+</html>

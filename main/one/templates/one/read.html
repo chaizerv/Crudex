@@ -1,0 +1,39 @@
+{% extends "one/index.html" %}
+
+{% block content %}
+<p>Список из БД</p>
+{% for crud in read %}
+   <table>
+  <tr>
+     <td>Username</td>
+    <td>First name</td>
+    <td>Last name</td>
+    <td>Password</td>
+    <td>Stat</td>
+  </tr>
+
+  <tr>
+    <td>{{crud.username}}</td>
+    <td>{{crud.first_name}}</td>
+    <td>{{crud.last_name}}</td>
+    <td>{{crud.password}}</td>
+    <td>{% if crud.is_active %}
+            <div>Активен {{username}}</div>
+        {% else %}
+            <div>Не активен</div>
+        {% endif %}</td>
+    <td><form action="{% url 'update' crud.id %}">
+        {% csrf_token %}
+        <button type="submit" >Изменить</button></form></td>
+    <td>
+        <form action="{% url 'delete' crud.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Удалить</button>
+        </form></td>
+  </tr>
+    </table>
+
+
+
+{% endfor %}
+{% endblock content %}
