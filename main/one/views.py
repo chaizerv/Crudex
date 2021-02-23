@@ -5,7 +5,7 @@ from .models import Crudex
 def read(request):
     # Вывод всех объектов из базы
     context = {'read':Crudex.objects.all()}
-    return render(request, "one/read.html",context)
+    return render(request, "one/read.html", context)
 
 def create_form(request, id=0):
     if request.method == "GET":
