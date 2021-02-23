@@ -2,8 +2,7 @@
 
 {% block content %}
 <p>Список из БД</p>
-{% for crud in read %}
-   <table>
+<table>
   <tr>
     <td>Username</td>
     <td>First name</td>
@@ -11,6 +10,9 @@
     <td>Password</td>
     <td>Stat</td>
   </tr>
+</table>    
+{% for crud in read %}
+<table>
   <tr>
     <td>{{crud.username}}</td>
     <td>{{crud.first_name}}</td>
