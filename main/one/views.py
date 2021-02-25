@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from .forms import CrudexForm
 from .models import Crudex
 
+
 def read(request):
-    # Вывод всех объектов из базы
     context = {'read':Crudex.objects.all()}
     return render(request, "one/read.html", context)
 
@@ -15,7 +15,7 @@ def create_form(request, id=0):
             crud = Crudex.objects.get(pk=id)
             form = CrudexForm(instance=crud)
         return render(request, 'one/create_form.html',{'form':form})
-    else:   # Редактирование и сохранение пользователя
+    else:
         if id == 0:
             form = CrudexForm(request.POST)
         else:
@@ -24,7 +24,6 @@ def create_form(request, id=0):
         if form.is_valid():
             form.save()
         return redirect('/read')
-
 
 def delete(request,id):
     crud = Crudex.objects.get(pk=id)
